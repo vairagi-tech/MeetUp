@@ -1,6 +1,6 @@
-# Student Scheduler Platform - Setup Guide
+# MeetUp Platform - Setup Guide
 
-This guide will help you set up the Student Scheduler Platform for development and production environments.
+This guide will help you set up the MeetUp Platform for development and production environments.
 
 ## Prerequisites
 

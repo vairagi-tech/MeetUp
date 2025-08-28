@@ -1,4 +1,4 @@
-# Student Scheduler Platform
+# MeetUp Platform
 
 A comprehensive platform for university students to find common free time slots with friends, manage timetables, discover nearby friends, and participate in campus activities.
 
