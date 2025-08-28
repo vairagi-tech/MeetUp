@@ -1,0 +1,75 @@
+{
+  "name": "student-scheduler-platform",
+  "version": "1.0.0",
+  "description": "A comprehensive platform for university students to find common free time slots with friends, manage timetables, and participate in campus activities",
+  "private": true,
+  "scripts": {
+    "install:all": "npm install && cd shared && npm install && cd ../services/api-gateway && npm install && cd ../user-service && npm install && cd ../timetable-service && npm install && cd ../friends-service && npm install && cd ../location-service && npm install && cd ../events-service && npm install && cd ../notification-service && npm install && cd ../../frontend && npm install",
+    "build:shared": "cd shared && npm run build",
+    "build:services": "npm run build:shared && cd services/api-gateway && npm run build && cd ../user-service && npm run build && cd ../timetable-service && npm run build && cd ../friends-service && npm run build && cd ../location-service && npm run build && cd ../events-service && npm run build && cd ../notification-service && npm run build",
+    "build:frontend": "cd frontend && npm run build",
+    "build:all": "npm run build:services && npm run build:frontend",
+    "dev": "concurrently \"npm run dev:gateway\" \"npm run dev:user\" \"npm run dev:timetable\" \"npm run dev:friends\" \"npm run dev:location\" \"npm run dev:events\" \"npm run dev:notifications\" \"npm run dev:frontend\"",
+    "dev:gateway": "cd services/api-gateway && npm run dev",
+    "dev:user": "cd services/user-service && npm run dev",
+    "dev:timetable": "cd services/timetable-service && npm run dev",
+    "dev:friends": "cd services/friends-service && npm run dev",
+    "dev:location": "cd services/location-service && npm run dev",
+    "dev:events": "cd services/events-service && npm run dev",
+    "dev:notifications": "cd services/notification-service && npm run dev",
+    "dev:frontend": "cd frontend && npm run dev",
+    "start": "concurrently \"npm run start:gateway\" \"npm run start:user\" \"npm run start:timetable\" \"npm run start:friends\" \"npm run start:location\" \"npm run start:events\" \"npm run start:notifications\"",
+    "start:gateway": "cd services/api-gateway && npm start",
+    "start:user": "cd services/user-service && npm start",
+    "start:timetable": "cd services/timetable-service && npm start",
+    "start:friends": "cd services/friends-service && npm start",
+    "start:location": "cd services/location-service && npm start",
+    "start:events": "cd services/events-service && npm start",
+    "start:notifications": "cd services/notification-service && npm start",
+    "test": "cd services/api-gateway && npm test && cd ../user-service && npm test && cd ../timetable-service && npm test && cd ../friends-service && npm test && cd ../location-service && npm test && cd ../events-service && npm test && cd ../notification-service && npm test && cd ../../frontend && npm test",
+    "lint": "cd services/api-gateway && npm run lint && cd ../user-service && npm run lint && cd ../timetable-service && npm run lint && cd ../friends-service && npm run lint && cd ../location-service && npm run lint && cd ../events-service && npm run lint && cd ../notification-service && npm run lint",
+    "clean": "rm -rf services/*/dist services/*/node_modules frontend/node_modules frontend/build shared/dist shared/node_modules node_modules",
+    "docker:build": "docker-compose build",
+    "docker:up": "docker-compose up -d",
+    "docker:down": "docker-compose down",
+    "docker:logs": "docker-compose logs -f"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2",
+    "husky": "^8.0.3",
+    "lint-staged": "^15.0.2"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "**/*.{js,ts,jsx,tsx}": [
+      "npm run lint",
+      "git add"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/student-scheduler-platform.git"
+  },
+  "keywords": [
+    "university",
+    "students",
+    "scheduling",
+    "timetable",
+    "friends",
+    "microservices",
+    "mern",
+    "react",
+    "nodejs",
+    "mongodb"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
+  }
+}

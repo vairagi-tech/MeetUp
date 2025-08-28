@@ -1,0 +1,406 @@
+/* Base Tailwind directives */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom component styles */
+@layer components {
+  .btn-primary {
+    @apply bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-md transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+  
+  .btn-secondary {
+    @apply bg-gray-200 hover:bg-gray-300 text-gray-900 font-medium py-2 px-4 rounded-md transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+  
+  .btn-danger {
+    @apply bg-red-600 hover:bg-red-700 text-white font-medium py-2 px-4 rounded-md transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+  
+  .input-field {
+    @apply appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm;
+  }
+  
+  .form-label {
+    @apply block text-sm font-medium text-gray-700 mb-1;
+  }
+  
+  .card {
+    @apply bg-white overflow-hidden shadow rounded-lg;
+  }
+  
+  .card-header {
+    @apply px-4 py-5 sm:px-6 border-b border-gray-200;
+  }
+  
+  .card-body {
+    @apply px-4 py-5 sm:p-6;
+  }
+  
+  .card-footer {
+    @apply px-4 py-4 sm:px-6 border-t border-gray-200 bg-gray-50;
+  }
+  
+  .badge {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium;
+  }
+  
+  .badge-primary {
+    @apply bg-blue-100 text-blue-800;
+  }
+  
+  .badge-secondary {
+    @apply bg-gray-100 text-gray-800;
+  }
+  
+  .badge-success {
+    @apply bg-green-100 text-green-800;
+  }
+  
+  .badge-warning {
+    @apply bg-yellow-100 text-yellow-800;
+  }
+  
+  .badge-danger {
+    @apply bg-red-100 text-red-800;
+  }
+  
+  .spinner {
+    @apply animate-spin h-5 w-5 border-2 border-gray-300 border-t-blue-600 rounded-full;
+  }
+  
+  .loading-overlay {
+    @apply fixed inset-0 bg-gray-600 bg-opacity-50 flex items-center justify-center z-50;
+  }
+  
+  .dropdown-menu {
+    @apply origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none z-50;
+  }
+  
+  .dropdown-item {
+    @apply block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900 cursor-pointer;
+  }
+  
+  .modal-overlay {
+    @apply fixed inset-0 bg-gray-600 bg-opacity-50 flex items-center justify-center z-50;
+  }
+  
+  .modal {
+    @apply bg-white rounded-lg shadow-xl max-w-md w-full mx-4 max-h-screen overflow-y-auto;
+  }
+  
+  .modal-header {
+    @apply px-6 py-4 border-b border-gray-200;
+  }
+  
+  .modal-body {
+    @apply px-6 py-4;
+  }
+  
+  .modal-footer {
+    @apply px-6 py-4 border-t border-gray-200 flex justify-end space-x-2;
+  }
+  
+  .table {
+    @apply min-w-full divide-y divide-gray-200;
+  }
+  
+  .table-header {
+    @apply bg-gray-50;
+  }
+  
+  .table-header-cell {
+    @apply px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider;
+  }
+  
+  .table-body {
+    @apply bg-white divide-y divide-gray-200;
+  }
+  
+  .table-cell {
+    @apply px-6 py-4 whitespace-nowrap text-sm text-gray-900;
+  }
+  
+  .alert {
+    @apply p-4 rounded-md;
+  }
+  
+  .alert-success {
+    @apply bg-green-50 text-green-700 border border-green-200;
+  }
+  
+  .alert-warning {
+    @apply bg-yellow-50 text-yellow-700 border border-yellow-200;
+  }
+  
+  .alert-error {
+    @apply bg-red-50 text-red-700 border border-red-200;
+  }
+  
+  .alert-info {
+    @apply bg-blue-50 text-blue-700 border border-blue-200;
+  }
+  
+  .progress {
+    @apply w-full bg-gray-200 rounded-full h-2;
+  }
+  
+  .progress-bar {
+    @apply bg-blue-600 h-2 rounded-full transition-all duration-300;
+  }
+  
+  .skeleton {
+    @apply animate-pulse bg-gray-200 rounded;
+  }
+  
+  .tooltip {
+    @apply absolute z-10 px-2 py-1 text-xs text-white bg-gray-900 rounded shadow-lg pointer-events-none;
+  }
+}
+
+/* Custom animations */
+@keyframes slideIn {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideOut {
+  from {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes bounce {
+  0%, 20%, 53%, 80%, 100% {
+    animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+    transform: translate3d(0, 0, 0);
+  }
+  40%, 43% {
+    animation-timing-function: cubic-bezier(0.755, 0.050, 0.855, 0.060);
+    transform: translate3d(0, -30px, 0);
+  }
+  70% {
+    animation-timing-function: cubic-bezier(0.755, 0.050, 0.855, 0.060);
+    transform: translate3d(0, -15px, 0);
+  }
+  90% {
+    transform: translate3d(0, -4px, 0);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+/* Animation utility classes */
+.animate-slideIn {
+  animation: slideIn 0.3s ease-out;
+}
+
+.animate-slideOut {
+  animation: slideOut 0.3s ease-in;
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.2s ease-in;
+}
+
+.animate-fadeOut {
+  animation: fadeOut 0.2s ease-out;
+}
+
+.animate-bounce {
+  animation: bounce 1s;
+}
+
+.animate-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Custom scrollbar */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
+}
+
+/* Focus styles for accessibility */
+.focus\:ring-blue-500:focus {
+  --tw-ring-color: rgb(59 130 246 / 0.5);
+}
+
+.focus\:ring-red-500:focus {
+  --tw-ring-color: rgb(239 68 68 / 0.5);
+}
+
+.focus\:ring-green-500:focus {
+  --tw-ring-color: rgb(34 197 94 / 0.5);
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  .dark\:bg-gray-900 {
+    background-color: rgb(17 24 39);
+  }
+  
+  .dark\:text-white {
+    color: rgb(255 255 255);
+  }
+  
+  .dark\:text-gray-300 {
+    color: rgb(209 213 219);
+  }
+  
+  .dark\:border-gray-600 {
+    border-color: rgb(75 85 99);
+  }
+}
+
+/* Responsive utilities */
+@media (max-width: 640px) {
+  .mobile\:hidden {
+    display: none;
+  }
+  
+  .mobile\:block {
+    display: block;
+  }
+}
+
+/* Print styles */
+@media print {
+  .print\:hidden {
+    display: none;
+  }
+  
+  .print\:block {
+    display: block;
+  }
+  
+  body {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+}
+
+/* Calendar and timetable specific styles */
+.calendar-grid {
+  display: grid;
+  grid-template-columns: 100px repeat(7, 1fr);
+  gap: 1px;
+  background-color: #e5e7eb;
+}
+
+.calendar-cell {
+  background-color: white;
+  padding: 8px;
+  min-height: 80px;
+  position: relative;
+}
+
+.calendar-event {
+  @apply absolute inset-x-1 bg-blue-100 border-l-4 border-blue-500 p-1 text-xs rounded;
+  z-index: 1;
+}
+
+.timetable-slot {
+  @apply border border-gray-200 p-2 min-h-16 relative bg-white hover:bg-gray-50 transition-colors;
+}
+
+.timetable-entry {
+  @apply absolute inset-1 rounded p-2 text-xs font-medium shadow-sm;
+}
+
+.timetable-entry.lecture {
+  @apply bg-blue-100 border-l-4 border-blue-500 text-blue-800;
+}
+
+.timetable-entry.lab {
+  @apply bg-green-100 border-l-4 border-green-500 text-green-800;
+}
+
+.timetable-entry.tutorial {
+  @apply bg-purple-100 border-l-4 border-purple-500 text-purple-800;
+}
+
+.timetable-entry.exam {
+  @apply bg-red-100 border-l-4 border-red-500 text-red-800;
+}
+
+.timetable-entry.other {
+  @apply bg-gray-100 border-l-4 border-gray-500 text-gray-800;
+}
+
+/* Free time indicator */
+.free-time-slot {
+  @apply bg-green-50 border-2 border-dashed border-green-300;
+}
+
+/* Notification styles */
+.notification {
+  @apply fixed top-4 right-4 max-w-sm bg-white shadow-lg rounded-lg pointer-events-auto ring-1 ring-black ring-opacity-5 overflow-hidden z-50;
+}
+
+.notification-enter {
+  transform: translateX(100%);
+}
+
+.notification-enter-active {
+  transform: translateX(0);
+  transition: transform 300ms ease-out;
+}
+
+.notification-exit {
+  transform: translateX(0);
+}
+
+.notification-exit-active {
+  transform: translateX(100%);
+  transition: transform 300ms ease-in;
+}
